@@ -1,0 +1,8 @@
+.ribbon-app-menu {
+	position: absolute;
+	background: white;
+	margin: 0;
+	padding: 0;
+	width: 25em;
+	min-height: 6em;
+}

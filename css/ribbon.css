@@ -1,0 +1,9 @@
+.ribbon {
+	--light-background: #f1f1f1;
+	--dark-background: var(--brand-primary);
+
+	display: flex;
+	flex-direction: column;
+	background: var(--dark-background);
+	color: white;
+}

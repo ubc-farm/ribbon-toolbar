@@ -1,0 +1,20 @@
+.ribbon-tab {
+	color: inherit;
+	border: 0;
+	text-transform: none;
+	padding: 0 1em;
+	line-height: 2em;
+	margin: 0 0.1em;
+	border-radius: 0;
+	font-size: 1em;
+	font-weight: normal;
+	opacity: 1;
+}
+
+.ribbon-tab:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+.ribbon-tab[aria-pressed="true"] {
+	background: var(--light-background);
+	color: rgba(0, 0, 0, 0.87);
+}

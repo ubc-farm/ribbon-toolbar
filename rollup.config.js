@@ -1,10 +1,8 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-	entry: 'test-src.js',
+	entry: 'src/index.js',
 	sourceMap: true,
-	format: 'iife',
-	moduleName: 'Ribbon',
 	plugins: [
 		babel({
 			plugins: ['transform-react-jsx', 'external-helpers'],
@@ -16,4 +14,11 @@ export default {
 		'react-dom': 'ReactDOM',
 		tape: 'test',
 	},
+	moduleName: 'Ribbon',
+	exports: 'named',
+	targets: [
+		{ dest: 'dist/ribbon.es.js', format: 'es' },
+		{ dest: 'dist/ribbon.cjs.js', format: 'cjs' },
+		{ dest: 'dist/ribbon.iife.js', format: 'iife' },
+	],
 };

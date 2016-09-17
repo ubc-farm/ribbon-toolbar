@@ -18,3 +18,28 @@
 	background: var(--light-background);
 	color: rgba(0, 0, 0, 0.87);
 }
+
+.ribbon-tab-group {
+	display: inline-block;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.15);
+	position: relative;
+}
+
+.ribbon-tab-group-header {
+	margin: 0;
+	position: absolute;
+	background: inherit;
+	font-weight: normal;
+	bottom: 100%;
+	width: 100%;
+	text-align: center;
+	font-size: 0.9em;
+	line-height: 2.44em;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.ribbon-tab-group > .ribbon-tab:first-of-type { margin-left: 0; }
+.ribbon-tab-group > .ribbon-tab:last-of-type { margin-right: 0; }

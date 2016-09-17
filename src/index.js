@@ -5,3 +5,4 @@ export { default as Tabs } from './Tabs.js';
 export { default as ContextualTabs } from './ContextualTabs.js';
 export { default as Tab } from './Tab.js';
 export { default as TabGroup } from './TabGroup.js';
+export { default as MenuGroup } from './MenuGroup.js';

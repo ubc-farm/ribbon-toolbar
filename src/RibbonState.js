@@ -7,7 +7,7 @@ export default class RibbonState extends PureComponent {
 
 		this.handleTabClick = this.handleTabClick.bind(this);
 		this.handleMenuClick = this.handleMenuClick.bind(this);
-		this.state = { selected: null, menuOpen: false };
+		this.state = { selected: 'h', menuOpen: false };
 	}
 
 	handleTabClick(altKey) {

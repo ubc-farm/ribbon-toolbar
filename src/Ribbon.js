@@ -27,13 +27,6 @@ export default function Ribbon({
 		}
 	});
 
-	if (appMenu === null) {
-		throw new TypeError('Could not find ApplicationMenu section in Ribbon');
-	}
-	if (coreTabSection === null) {
-		throw new TypeError('Could not find Tabs section in Ribbon');
-	}
-
 	return (
 		<form id={id} className="ribbon">
 			{headerSection}
@@ -58,10 +51,22 @@ export default function Ribbon({
 }
 
 Ribbon.propTypes = {
-	selected: PropTypes.string,
-	id: PropTypes.string,
-	children: PropTypes.node,
+	children(props, propName, componentName) {
+		const children = Children.toArray(props[propName]);
+
+		if (children.length < 2) {
+			return new Error(`${componentName} must have at least 2 children`);
+		} else if (!children.find(({ type }) => type === ApplicationMenu)) {
+			return new Error(`Could not find ApplicationMenu in ${componentName}`);
+		} else if (!children.find(({ type }) => type === Tabs)) {
+			return new Error(`Could not find Tabs section in ${componentName}`);
+		}
+
+		return null;
+	},
 	onTabClick: PropTypes.func.isRequired,
 	onMenuClick: PropTypes.func.isRequired,
+	selected: PropTypes.string,
 	menuOpen: PropTypes.bool,
+	id: PropTypes.string,
 };

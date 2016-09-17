@@ -1,5 +1,6 @@
 import { createElement, PropTypes, Children, cloneElement } from 'react';
 /** @jsx createElement */
+import TabGroup from './TabGroup.js';
 
 export default function ContextualTabs({ children, selected }) {
 	const flattened = [];
@@ -23,5 +24,15 @@ export default function ContextualTabs({ children, selected }) {
 
 ContextualTabs.propTypes = {
 	selected: PropTypes.string,
-	children: PropTypes.node,
+	children(props, propName, componentName) {
+		const children = Children.toArray(props[propName]);
+
+		for (const { type } of children) {
+			if (type !== TabGroup) {
+				return new Error(`${componentName} can only contain TabGroups`);
+			}
+		}
+
+		return null;
+	},
 };

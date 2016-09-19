@@ -37,7 +37,7 @@
 	width: 100%;
 	text-align: center;
 	font-size: 0.9em;
-	line-height: 2.44em;
+	line-height: var(--header-size);
 	color: rgba(255, 255, 255, 0.7);
 }
 

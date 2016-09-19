@@ -6,52 +6,46 @@
   Defaults to `var(--brand-primary)`.
 * `--light-background`: Used as the light background of the sections and the
   selected tab. Defaults to `#f1f1f1`
+* `--header-size`: Sets the size of the header. Since Tab Groups overlay their labels
+  on top of the ribbon, this variable sets the height of the tab group label.
+  Defaults to `2.44em`.
 
 ## Ribbon.default
 Should wrap the ribbon components used.
-`Ribbon.ApplicationMenu` and `Ribbon.Tabs` are required direct descendants,
-and `Ribbon.ContextualTabs` and/or `Ribbon.Header` are optional
-direct descendants. Other children will be ignored.
 
-The `id` prop can be used to set the ID of the ribbon's form element.
-It defaults to `"ribbon"`.
+`props.defaultSelected` is used to specify a default selected tab, rather than starting with
+no selected tab. If this is specified, the ribbon will act like an always open ribbon rather
+than a minimized ribbon.
+All other props will be set on the underlying `form` element.
 
-## Ribbon.Header
-Header container for the ribbon. Doesn't have any special JS logic,
-just some CSS styles. Any props given will be set on the `header` HTML element.
-
-## Ribbon.Title
-Wrapper for the title in the Ribbon Header
-
-## Ribbon.HelpSection
-Section for a help icon.
-* TODO: Modify the help section to be more generic
-
-## Ribbon.ApplicationMenu
-Displayed as the first tab on the toolbar, and opens a pop-up menu.
+## Ribbon.TabList
+Should be set as the first child of the ribbon. Contacts the tabs for the ribbon
+to select. Children should be either Tabs or ContextualTabs.
 
 ## Ribbon.Tabs
-Wrapper for the core tab elements.
+Represents a tab for the user to click.
+* `props.children`: any React node
+* `props.id`: Required. ID to represent the Tab, must be unique within the ribbon.
 
 ## Ribbon.ContextualTabs
-Wrapper for the tab group elements.
+Groups tabs so that they can be hidden when not needed.
+Children should be Tab elements.
+* `props.title`: React node. Displayed above the tabs as a label
+* `props.hidden`: Boolean. If true, the tab group is hidden and disabled.
 
-## Ribbon.Tab
-| Prop | Description |
-| ---- | ----------- |
-| children | Visible when the tab is selected, contains the body of the tab's section. |
-| title | The text displayed on the small tab icon. Can be any react node. |
-| altKey | Used as the key for react. In the future, this will have functionality similar to `accesskey`. |
+## Ribbon.Panel
+Tab panel that displays whenever the corresponding tab is selected.
+* `props.id`: Required. Must be the same as one of the tabs.
 
-## Ribbon.TabGroup
-| Prop | Description |
-| ---- | ----------- |
-| children | Should be Tab elements |
-| title | The text displayed above the group's small tabs. |
+## Ribbon.ApplicationMenu
+A special Panel that can open seperately from the other tabs.
+Displays as an absolute-positioned element, but it can modified with CSS.
+
+## Ribbon.MenuTab
+A special Tab that corresponds to the ApplicationMenu.
 
 ## Ribbon.MenuGroup
-Used to section off sub-menus inside a single tabbed menu section.
-| Prop | Description |
-| ---- | ----------- |
-| children | Any React node |
-| title | String displayed underneath the child elements |
+Helper for use inside Panels. Good for grouping form elements.
+*TODO*: Make fieldset instead of div?
+* `props.title`: Label for the group, displayed underneath its elements. Can only be a string.
+* `props.children`: Contexts of the group.

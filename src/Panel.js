@@ -6,7 +6,7 @@ import { createElement, PropTypes } from 'react';
  * @param {string} props.id
  */
 export default function Panel({ children, id, selected, className }) {
-	const disabled = id === selected;
+	const disabled = id !== selected;
 	return (
 		<fieldset
 			className={className}

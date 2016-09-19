@@ -25,6 +25,9 @@ export default class Ribbon extends PureComponent {
 		if (id === menuId) {
 			this.setState({ menuOpen: !this.state.menuOpen });
 		} else {
+			if (id === this.state.selected) {
+				this.setState({ selected: this.props.defaultSelected });
+			}
 			this.setState({ selected: id });
 		}
 	}
@@ -33,15 +36,18 @@ export default class Ribbon extends PureComponent {
 		const props = Object.assign({}, this.props);
 		Reflect.deleteProperty(props, 'defaultSelected');
 
-		const childProps = Object.assign({}, this.state, { onClick: this.handleClick });
+		const { selected, menuOpen } = this.state;
+		const tabProps = { selected, menuOpen, onClick: this.handleClick };
+		const panelProps = { selected };
 
 		const [tablist, ...children] = props.children;
 
 		return (
 			<form className="ribbon" {...props}>
-				{cloneElement(tablist, childProps)}
-				<section className="ribbon-section-container">
-					{children.map(child => cloneElement(child, childProps))}
+				{cloneElement(tablist, tabProps)}
+				<section className="ribbon-content">
+					{children.map((child, key) =>
+						cloneElement(child, Object.assign({}, panelProps, { key })))}
 				</section>
 			</form>
 		);

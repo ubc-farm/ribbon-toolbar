@@ -1,6 +1,9 @@
-import { createElement, PropTypes, Children, cloneElement } from 'react';
+import { createElement, PropTypes } from 'react';
 /** @jsx createElement */
 
+/**
+ * Helper for use inside Panels.
+ */
 const MenuGroup = ({ children, title }) => (
 	<div className="ribbon-menu-group" data-label={title}>
 		{children}

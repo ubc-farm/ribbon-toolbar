@@ -20,7 +20,7 @@ const ContextualTabs = ({
 ContextualTabs.propTypes = {
 	title: PropTypes.node,
 	children: PropTypes.node,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	hidden: PropTypes.bool,
 	selected: PropTypes.string,
 };

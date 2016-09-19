@@ -9,6 +9,7 @@ export default function Tab({ children, id, onClick, selected }) {
 	const handleClick = onClick.bind(undefined, id);
 	return (
 		<button
+			type="button"
 			role="tab" aria-selected={selected === id}
 			className="ribbon-tab" onClick={handleClick}
 		>
@@ -20,6 +21,6 @@ export default function Tab({ children, id, onClick, selected }) {
 Tab.propTypes = {
 	children: PropTypes.node,
 	id: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	selected: PropTypes.string,
 };

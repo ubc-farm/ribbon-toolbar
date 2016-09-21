@@ -19,13 +19,21 @@ than a minimized ribbon.
 All other props will be set on the underlying `form` element.
 
 ## Ribbon.TabList
-Should be set as the first child of the ribbon. Contacts the tabs for the ribbon
+Contains the tabs for the ribbon
 to select. Children should be either Tabs or ContextualTabs.
 
-## Ribbon.Tabs
+> Ribbon.default automatically passes props 'onClick', 'selected', and 'menuOpen'.
+> If the TabList is wrapped in another React component, make sure that these props
+> are passed to TabList.
+
+## Ribbon.Tab
 Represents a tab for the user to click.
 * `props.children`: any React node
 * `props.id`: Required. ID to represent the Tab, must be unique within the ribbon.
+
+> Ribbon.default automatically passes props 'onClick' and 'selected'.
+> If the Tab is wrapped in another React component, make sure that these props
+> are passed to Tab.
 
 ## Ribbon.ContextualTabs
 Groups tabs so that they can be hidden when not needed.
@@ -33,16 +41,32 @@ Children should be Tab elements.
 * `props.title`: React node. Displayed above the tabs as a label
 * `props.hidden`: Boolean. If true, the tab group is hidden and disabled.
 
+> Ribbon.default automatically passes props 'onClick' and 'selected'.
+> If ContextualTabs is wrapped in another React component, make sure that these props
+> are passed to ContextualTabs.
+
 ## Ribbon.Panel
 Tab panel that displays whenever the corresponding tab is selected.
 * `props.id`: Required. Must be the same as one of the tabs.
+
+> Ribbon.default automatically passes prop 'selected'.
+> If the Panel is wrapped in another React component, make sure that these props
+> are passed to Panel.
 
 ## Ribbon.ApplicationMenu
 A special Panel that can open seperately from the other tabs.
 Displays as an absolute-positioned element, but it can modified with CSS.
 
+> Ribbon.default automatically passes prop 'menuOpen'.
+> If the ApplicationMenu is wrapped in another React component, make sure that these props
+> are passed to ApplicationMenu.
+
 ## Ribbon.MenuTab
 A special Tab that corresponds to the ApplicationMenu.
+
+> Ribbon.default automatically passes props 'menuOpen' and 'onClick'.
+> If the MenuTab is wrapped in another React component, make sure that these props
+> are passed to MenuTab.
 
 ## Ribbon.MenuGroup
 Helper for use inside Panels. Good for grouping form elements.

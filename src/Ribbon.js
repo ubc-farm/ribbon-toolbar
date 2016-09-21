@@ -1,4 +1,4 @@
-import { createElement, PropTypes, PureComponent, cloneElement } from 'react';
+import { createElement, PropTypes, PureComponent, cloneElement, Children } from 'react';
 /** @jsx createElement */
 import menuId from './menu/symbol.js';
 
@@ -37,18 +37,11 @@ export default class Ribbon extends PureComponent {
 		Reflect.deleteProperty(props, 'defaultSelected');
 
 		const { selected, menuOpen } = this.state;
-		const tabProps = { selected, menuOpen, onClick: this.handleClick };
-		const panelProps = { selected };
-
-		const [tablist, ...children] = props.children;
+		const childProps = { selected, menuOpen, onClick: this.handleClick };
 
 		return (
 			<form className="ribbon" {...props}>
-				{cloneElement(tablist, tabProps)}
-				<section className="ribbon-content">
-					{children.map((child, key) =>
-						cloneElement(child, Object.assign({}, panelProps, { key })))}
-				</section>
+				{Children.map(props.children, child => cloneElement(child, childProps))}
 			</form>
 		);
 	}

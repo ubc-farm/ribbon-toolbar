@@ -1,13 +1,10 @@
-.ribbon-content {
-	background: var(--light-background);
-	color: rgba(0, 0, 0, 0.87);
-}
-
 .ribbon-section {
 	height: 5.75em;
 	margin: 0;
 	padding: 0;
 	border: 0;
+	background: var(--light-background);
+	color: rgba(0, 0, 0, 0.87);
 }
 
 .ribbon-menu-group {

@@ -9,3 +9,4 @@ export { default as MenuTab } from './menu/MenuTab.js';
 export { default as ApplicationMenu } from './menu/ApplicationMenu.js';
 
 export { default as MenuGroup } from './utils/MenuGroup.js';
+export { default as Barrier } from './utils/Barrier.js';

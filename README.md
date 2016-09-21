@@ -73,3 +73,8 @@ Helper for use inside Panels. Good for grouping form elements.
 *TODO*: Make fieldset instead of div?
 * `props.title`: Label for the group, displayed underneath its elements. Can only be a string.
 * `props.children`: Contexts of the group.
+
+## Ribbon.Barrier
+Wraps some other ReactElement so that props created by Ribbon
+('selected', 'menuOpen', and 'onClick') are not passed to the wrapped element.
+Useful for having native elements as direct children of the Ribbon.

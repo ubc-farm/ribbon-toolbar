@@ -20,8 +20,8 @@ export default function Panel({ children, id, selected, className }) {
 
 Panel.propTypes = {
 	children: PropTypes.node,
-	id: PropTypes.string.isRequired,
-	selected: PropTypes.string,
+	id: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]).isRequired,
+	selected: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]),
 	className: PropTypes.string,
 };
 

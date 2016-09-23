@@ -22,7 +22,7 @@ ContextualTabs.propTypes = {
 	children: PropTypes.node,
 	onClick: PropTypes.func,
 	hidden: PropTypes.bool,
-	selected: PropTypes.string,
+	selected: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]),
 };
 
 export default ContextualTabs;

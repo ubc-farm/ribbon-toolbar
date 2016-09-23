@@ -15,7 +15,7 @@ const TabList = ({ children, onClick, selected, menuOpen }) => (
 TabList.propTypes = {
 	children: PropTypes.node,
 	onClick: PropTypes.func,
-	selected: PropTypes.string,
+	selected: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]),
 	menuOpen: PropTypes.bool,
 };
 

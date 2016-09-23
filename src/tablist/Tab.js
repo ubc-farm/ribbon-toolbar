@@ -20,7 +20,7 @@ export default function Tab({ children, id, onClick, selected }) {
 
 Tab.propTypes = {
 	children: PropTypes.node,
-	id: PropTypes.string.isRequired,
+	id: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]).isRequired,
 	onClick: PropTypes.func,
-	selected: PropTypes.string,
+	selected: PropTypes.oneOfType([PropTypes.string, PropTypes.symbol]),
 };

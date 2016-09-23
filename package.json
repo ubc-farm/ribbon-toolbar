@@ -7,7 +7,10 @@
 	"devDependencies": {
 		"rollup": "0.35.11",
 		"rollup-plugin-babel": "2.6.1",
-		"cssnano-cli": "^1.0.4"
+		"cssnano-cli": "^1.0.4",
+		"enzyme": "^2.4.1",
+		"react-addons-test-utils": "^15.3.2",
+		"tape": "^4.6.0"
 	},
 	"main": "dist/ribbon.cjs.js",
 	"module": "dist/ribbon.es.js",
@@ -16,7 +19,8 @@
 	"scripts": {
 		"prepublish:js": "rollup -c",
 		"prepublish:css": "type css/* | cssnano > dist/ribbon.css",
-		"prepublish": "npm run prepublish:js && npm run prepublish:css"
+		"prepublish": "npm run prepublish:js && npm run prepublish:css",
+		"test": "rollup -c test/rollup.config.js | node"
 	},
 	"files": [
 		"dist"

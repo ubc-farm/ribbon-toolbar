@@ -6,7 +6,7 @@ import { createElement, PropTypes } from 'react'; /** @jsx createElement */
  * @param {any} props.id
  */
 export default function Tab({ children, id, onClick, selected }) {
-	const handleClick = onClick.bind(undefined, id);
+	const handleClick = onClick ? onClick.bind(undefined, id) : undefined;
 	return (
 		<button
 			type="button"
